@@ -11,10 +11,16 @@ class TextViewController: UIViewController {
 
     @IBOutlet weak var extractedText: UITextView!
     
+    var imageSelected: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if imageSelected != nil {
+            print("Image is selected")
+        } else {
+            print("image is not selected")
+        }
     }
     
 }
