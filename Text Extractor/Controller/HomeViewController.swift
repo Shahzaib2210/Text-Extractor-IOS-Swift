@@ -49,7 +49,7 @@ extension HomeViewController : UIImagePickerControllerDelegate, UINavigationCont
         
         let actionSheet = UIAlertController(title: "Choose option to capture or select photo", message: "", preferredStyle: .actionSheet)
         
-        // MARK: - Camera
+        // MARK:- Camera
         
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { action in
             let image = UIImagePickerController()
@@ -59,7 +59,7 @@ extension HomeViewController : UIImagePickerControllerDelegate, UINavigationCont
             self.present(image, animated: true)
         }))
         
-        // MARK: - Photo Library
+        // MARK:- Photo Library
         
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { action in
             let image = UIImagePickerController()
