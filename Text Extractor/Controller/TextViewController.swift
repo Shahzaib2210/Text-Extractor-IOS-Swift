@@ -10,6 +10,8 @@ import Vision
 
 class TextViewController: UIViewController {
 
+    // MARK: - @IBOutlets.
+    
     @IBOutlet weak var extractedText: UITextView!
     
     var imageSelected: UIImage?
@@ -18,21 +20,22 @@ class TextViewController: UIViewController {
         super.viewDidLoad()
         
         if imageSelected != nil {
-            print("Image is selected")
+            readTextFromImage(img: imageSelected!)
         } else {
             print("image is not selected")
         }
     }
     
-    func readTextFromImage(img: UIImage) {
+    private func readTextFromImage(img: UIImage) {
         
-        guard let cgImage = imageSelected?.cgImage else {return}
+        guard let cgImage = imageSelected?.cgImage else {
+            fatalError("Could not get CGImage")
+        }
         
         // creating request with cgImage
         let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
         
-        // Vision provides its text-recognition capabilities through VNRecognizeTextRequest, an image-based request type that finds and extracts text in images.
-        let request = VNRecognizeTextRequest { request, error in
+        let request = VNRecognizeTextRequest  { request, error in
             
             guard let observations = request.results as? [VNRecognizedTextObservation],
                   error == nil else { return
@@ -41,22 +44,17 @@ class TextViewController: UIViewController {
              $0.topCandidates(1).first?.string
              }).joined(separator: ", ")
              print(text) // text we get from image
-            self.extractedText.text = text
+           
+            DispatchQueue.main.async {
+                self.extractedText.text = text
+            }
         }
         
-//        request.recognitionLevel = VNRequestTextRecognitionLevel
-//        try handler.perform([request])
-        
-        //Just add .fast at the end
-        request.recognitionLevel = VNRequestTextRecognitionLevel.fast
-        
-        //Just add .fast at the end
-        request.recognitionLevel = VNRequestTextRecognitionLevel.accurate
-        
-        // just add the Language code
-        request.recognitionLanguages = ["Language code you need"]
-        request.recognitionLevel = VNRequestTextRecognitionLevel.accurate
-       // try handler.perform([request])
+        // Process Request
+        do {
+            try handler.perform([request])
+        } catch {
+            print(error)
+        }
     }
-    
 }

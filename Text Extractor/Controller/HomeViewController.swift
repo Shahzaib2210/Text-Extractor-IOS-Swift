@@ -18,15 +18,21 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        selectedImage.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleProfileImageTapped))
+        selectedImage.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - IBActions.
     
+    @objc private func handleProfileImageTapped(_ gesture: UITapGestureRecognizer) {
+        if gesture.view is UIImageView {
+           showImageSelectionOptions()
+       }
+    }
+    
     @IBAction func camera_Button_Pressed(_ sender: UIBarButtonItem) {
-        
         showImageSelectionOptions()
-        
     }
     
     @IBAction func extract_Text_Button_Pressed(_ sender: UIButton) {
@@ -36,11 +42,13 @@ class HomeViewController: UIViewController {
             textViewController.imageSelected = selectImage
             self.navigationController?.pushViewController(textViewController, animated: true)
         } else {
-            print("Please select or take image.")
+            
+            // Alert
+            let alert = UIAlertController(title: "Error", message: "Please tap on image or click on camera icon to select or take image.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
-        
     }
-    
 }
 
 extension HomeViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
