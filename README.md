@@ -13,11 +13,11 @@
 
 ![1](https://github.com/user-attachments/assets/8b05cd44-d286-4864-b621-36794e31eeea)
 
-- Click on the camera icon or tap on the image to take a picture from the camera or select one from the photo library.
+ - Click on the camera icon or tap on the image to take a picture from the camera or select one from the photo library.
 
 ![2](https://github.com/user-attachments/assets/ba8394d7-a43b-4a5b-a89c-2060d662bc18)
 
-- Click on Extract Text Button.
+ - Click on Extract Text Button.
 
 ![3](https://github.com/user-attachments/assets/adeecd3d-4f12-4aa7-b483-1538a625d015)
 
