@@ -13,6 +13,8 @@
 
 ![1](https://github.com/user-attachments/assets/8b05cd44-d286-4864-b621-36794e31eeea)
 
+<img src="[https://github.com/favicon.ico](https://github.com/user-attachments/assets/8b05cd44-d286-4864-b621-36794e31eeea)" width="48">
+
  - Click on the camera icon or tap on the image to take a picture from the camera or select one from the photo library.
 
 ![2](https://github.com/user-attachments/assets/ba8394d7-a43b-4a5b-a89c-2060d662bc18)
