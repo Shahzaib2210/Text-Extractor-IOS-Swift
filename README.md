@@ -11,9 +11,7 @@
 - After cloning the project.
 - Run the app on an IOS Simulator or physical device.
 
-![1](https://github.com/user-attachments/assets/8b05cd44-d286-4864-b621-36794e31eeea)
-
-<img src="[https://github.com/favicon.ico](https://github.com/user-attachments/assets/8b05cd44-d286-4864-b621-36794e31eeea)" width="48">
+![1](https://github.com/user-attachments/assets/8b05cd44-d286-4864-b621-36794e31eeea){ height=400px }
 
  - Click on the camera icon or tap on the image to take a picture from the camera or select one from the photo library.
 
